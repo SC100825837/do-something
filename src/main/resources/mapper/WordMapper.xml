@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.pro.mapper.WordMapper">
+
+    <resultMap id="wordBaseResultMap" type="com.cc.pro.entity.Word">
+        <result column="id" jdbcType="BIGINT" property="id" />
+        <result column="letter_spell" jdbcType="VARCHAR" property="letterSpell" />
+        <result column="page" jdbcType="INTEGER" property="page" />
+        <result column="belong_list" jdbcType="INTEGER" property="belongList" />
+    </resultMap>
+
+    <select id="getOneById" resultMap="wordBaseResultMap">
+        select * from word where id = #{id}
+    </select>
+
+    <select id="listAllWords" resultMap="wordBaseResultMap">
+        select letter_spell, page, belong_list from word
+    </select>
+</mapper>
